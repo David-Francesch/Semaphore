@@ -1,5 +1,6 @@
 import java.util.concurrent.Semaphore;
 
+
 public class Museo {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Hello, World!");
@@ -7,11 +8,12 @@ public class Museo {
 		Semaphore entrada = new Semaphore(2);
 		Semaphore salida = new Semaphore(3);
 		Semaphore aforo = new Semaphore(7);
+		Semaphore autobus = new Semaphore(0);
 
 		Visitantes[] vst = new Visitantes[10];
 
 		for (int i = 0; i < vst.length; i++) {
-			vst[i] = new Visitantes(entrada, salida, aforo);
+			vst[i] = new Visitantes(entrada, salida, aforo, autobus);
 		}
 
 		for (int i = 0; i < vst.length; i++) {
