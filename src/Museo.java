@@ -6,22 +6,38 @@ public class Museo {
 
 		Semaphore entrada = new Semaphore(2);
 		Semaphore salida = new Semaphore(3);
+		Semaphore aforo = new Semaphore(7);
 
-		Visitantes h1 = new Visitantes(entrada, salida);
-		Visitantes h2 = new Visitantes(entrada, salida);
-		Visitantes h3 = new Visitantes(entrada, salida);
-		Visitantes h4 = new Visitantes(entrada, salida);
-		Visitantes h5 = new Visitantes(entrada, salida);
-		Visitantes h6 = new Visitantes(entrada, salida);
-		Visitantes h7 = new Visitantes(entrada, salida);
+		Visitantes[] vst = new Visitantes[10];
 
-		h1.start();
-		h2.start();
-		h3.start();
-		h4.start();
-		h5.start();
-		h6.start();
-		h7.start();
+		for (int i = 0; i < vst.length; i++) {
+			vst[i] = new Visitantes(entrada, salida, aforo);
+		}
+
+		for (int i = 0; i < vst.length; i++) {
+			vst[i].start();
+		}
+		// Visitantes h1 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h2 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h3 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h4 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h5 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h6 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h7 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h8 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h9 = new Visitantes(entrada, salida, aforo);
+		// Visitantes h10 = new Visitantes(entrada, salida, aforo);
+
+		// h1.start();
+		// h2.start();
+		// h3.start();
+		// h4.start();
+		// h5.start();
+		// h6.start();
+		// h7.start();
+		// h8.start();
+		// h9.start();
+		// h10.start();
 
 		// try {
 		// 	// h1.join();
@@ -35,6 +51,5 @@ public class Museo {
 		// 	// TODO Auto-generated catch block
 		// 	e.printStackTrace();
 		// }
-		System.out.println("Fin de programa");
 	}
 }
